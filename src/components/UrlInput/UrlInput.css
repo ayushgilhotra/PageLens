@@ -1,0 +1,72 @@
+.url-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-card, #FFFFFF);
+  border: 1.5px solid var(--border-light, #EDE8E0);
+  border-radius: var(--radius-md, 14px);
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.url-input-wrapper.focused {
+  border-color: rgba(94, 125, 99, 0.5); /* var(--accent) with lower opacity */
+  box-shadow: 0 0 0 3px rgba(94, 125, 99, 0.12);
+}
+
+.url-input-wrapper.size-large {
+  padding: 20px 28px;
+  height: 64px;
+}
+
+.url-input-wrapper.size-default {
+  padding: 14px 24px;
+  height: 48px;
+}
+
+.url-input-icon-left {
+  color: var(--text-tertiary, #9CA3AF);
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.url-input-field {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-primary, #2F3437);
+  outline: none;
+  min-width: 0;
+}
+
+.url-input-wrapper.size-large .url-input-field {
+  font-size: 18px;
+}
+
+.url-input-wrapper.size-default .url-input-field {
+  font-size: 16px;
+}
+
+.url-input-field::placeholder {
+  color: var(--text-tertiary, #9CA3AF);
+}
+
+.url-input-paste-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary, #9CA3AF);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-left: 8px;
+}
+
+.url-input-paste-btn:hover {
+  background-color: var(--hover-bg, #F2EEE8);
+  color: var(--text-secondary, #70757A);
+}

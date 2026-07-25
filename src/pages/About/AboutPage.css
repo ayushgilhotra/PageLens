@@ -1,0 +1,199 @@
+.about-page {
+  max-width: var(--content-width, 1180px);
+  margin: 0 auto;
+  padding: 0 var(--space-md, 16px) 96px; /* Increased bottom padding */
+}
+
+.about-hero {
+  text-align: center;
+  padding: var(--space-3xl, 64px) 0 var(--space-2xl, 48px);
+}
+
+.about-hero h1 {
+  font-size: var(--text-hero, 56px);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md, 16px);
+  letter-spacing: -0.02em;
+}
+
+.about-hero-subtitle {
+  font-size: var(--text-title, 20px);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.about-section {
+  padding: 96px 0; /* Increased spacing between sections */
+  border-bottom: 1px solid var(--border);
+}
+
+.about-section:last-of-type {
+  border-bottom: none;
+}
+
+.about-section-title {
+  font-size: var(--text-title, 34px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xl, 32px);
+  letter-spacing: -0.01em;
+}
+
+.about-text {
+  font-size: var(--text-body, 16px);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 720px;
+  margin-bottom: var(--space-xl, 32px);
+}
+
+.about-grid {
+  display: grid;
+  gap: var(--space-xl, 32px);
+}
+
+.about-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.about-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.about-feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card, 18px);
+  padding: 40px; /* Increased whitespace around cards */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.about-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+}
+
+.feature-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(94, 125, 99, 0.1);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md, 16px);
+}
+
+.about-feature-card h3 {
+  font-size: var(--text-title, 20px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm, 12px);
+}
+
+.about-feature-card p {
+  font-size: var(--text-body, 16px);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.about-tech-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card, 18px);
+  padding: 40px 24px; /* Increased whitespace */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.about-tech-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+}
+
+.tech-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--hover-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md, 16px);
+  color: var(--text-primary);
+}
+
+.about-tech-card h4 {
+  font-size: var(--text-body, 16px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.about-tech-card p {
+  font-size: var(--text-caption, 14px);
+  color: var(--text-secondary);
+}
+
+.about-credits {
+  text-align: center;
+  padding: var(--space-3xl, 64px) 0 0;
+  margin-top: var(--space-3xl, 64px);
+  border-top: 1px solid var(--border);
+}
+
+.about-credits p {
+  font-size: var(--text-body, 16px);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs, 8px);
+}
+
+.about-credits a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.about-credits a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: var(--space-2xl, 48px) 0 var(--space-xl, 32px);
+  }
+  
+  .about-hero h1 {
+    font-size: 36px;
+  }
+  
+  .about-section {
+    padding: var(--space-2xl, 48px) 0;
+  }
+  
+  .about-section-title {
+    font-size: 28px;
+  }
+  
+  .about-grid-3, .about-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
