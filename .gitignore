@@ -34,3 +34,6 @@ backend/target/
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
+.env*
