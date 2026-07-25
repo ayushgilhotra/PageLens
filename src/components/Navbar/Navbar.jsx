@@ -50,7 +50,7 @@ const Navbar = () => {
         </nav>
 
         <div className="navbar-actions">
-          <a href="#" className="navbar-icon-btn" aria-label="GitHub">
+          <a href="https://github.com/ayushgilhotra/PageLens" target="_blank" rel="noopener noreferrer" className="navbar-icon-btn" aria-label="GitHub">
             <GitFork size={20} />
           </a>
           
