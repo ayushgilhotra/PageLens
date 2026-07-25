@@ -26,7 +26,7 @@ export const analyzeWebsite = async (inputUrl, onProgress) => {
   }
 
   try {
-    const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+    const baseUrl = import.meta.env.VITE_API_BASE_URL;
     const response = await fetch(`${baseUrl}/api/v1/analyze`, {
       method: 'POST',
       headers: {
