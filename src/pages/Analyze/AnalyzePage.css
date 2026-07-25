@@ -234,3 +234,26 @@
     grid-column: span 1;
   }
 }
+
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border);
+  z-index: 9999;
+  font-size: var(--text-tiny);
+  font-weight: 500;
+}
+
+.toast-notification svg {
+  color: var(--success);
+}
