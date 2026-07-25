@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, AlertCircle, RotateCcw, Download, Share2 } from 'lucide-react';
-import jsPDF from 'jspdf';
-import autoTable from 'jspdf-autotable';
+import { generatePdfReport } from '../../utils/pdfGenerator';
 import UrlInput from '../../components/UrlInput/UrlInput';
 import StatusCard from '../../components/Results/StatusCard';
 import ResponseTimeCard from '../../components/Results/ResponseTimeCard';
@@ -85,71 +84,7 @@ export default function AnalyzePage() {
   };
 
   const handleDownloadReport = () => {
-    if (!result) return;
-    const doc = new jsPDF();
-    const domain = result.domain || new URL(result.url.startsWith('http') ? result.url : `https://${result.url}`).hostname;
-    
-    doc.setFontSize(20);
-    doc.setTextColor(40, 40, 40);
-    doc.text('PageLens Website Analysis Report', 14, 22);
-    
-    doc.setFontSize(10);
-    doc.setTextColor(100, 100, 100);
-    doc.text(`Generated on: ${new Date().toLocaleString()}`, 14, 30);
-    doc.text(`Analyzed URL: ${result.url}`, 14, 36);
-    
-    autoTable(doc, {
-      startY: 45,
-      head: [['Metric', 'Result']],
-      body: [
-        ['HTTP Status', result.httpStatus],
-        ['Response Time', `${result.responseTime}ms`],
-        ['SEO Score', `${result.seoScore}/100`],
-        ['SEO Grade', result.seoGrade]
-      ],
-      theme: 'grid',
-      headStyles: { fillColor: [79, 70, 229] }
-    });
-    
-    autoTable(doc, {
-      startY: doc.lastAutoTable.finalY + 10,
-      head: [['Content Metadata', 'Value']],
-      body: [
-        ['Page Title', result.pageTitle || 'N/A'],
-        ['Meta Description', result.metaDescription ? (result.metaDescription.length > 50 ? result.metaDescription.substring(0, 50) + '...' : result.metaDescription) : 'N/A'],
-        ['Word Count', result.wordCount || 0],
-        ['Language', result.seoBreakdown?.language || result.language || 'N/A'],
-        ['Charset', result.seoBreakdown?.charset || result.charset || 'N/A']
-      ],
-      theme: 'grid',
-      headStyles: { fillColor: [79, 70, 229] }
-    });
-    
-    autoTable(doc, {
-      startY: doc.lastAutoTable.finalY + 10,
-      head: [['Technical SEO', 'Status']],
-      body: [
-        ['HTTPS Enabled', result.seoBreakdown?.https ? 'Yes' : 'No'],
-        ['Viewport Meta', result.seoBreakdown?.viewport ? 'Yes' : 'No'],
-        ['Robots.txt', result.seoBreakdown?.robots ? 'Yes' : 'No'],
-        ['Sitemap', result.seoBreakdown?.sitemap ? 'Yes' : 'No']
-      ],
-      theme: 'grid',
-      headStyles: { fillColor: [79, 70, 229] }
-    });
-    
-    autoTable(doc, {
-      startY: doc.lastAutoTable.finalY + 10,
-      head: [['Page Elements', 'Analysis']],
-      body: [
-        ['Headings', `H1: ${result.headings?.h1Count || 0} | H2: ${result.headings?.h2Count || 0} | H3: ${result.headings?.h3Count || 0}`],
-        ['Images', `Total: ${result.images?.totalImages || 0} | Missing Alt: ${result.images?.imagesMissingAlt || 0}`]
-      ],
-      theme: 'grid',
-      headStyles: { fillColor: [79, 70, 229] }
-    });
-    
-    doc.save(`pagelens-report-${domain}.pdf`);
+    generatePdfReport(result);
   };
 
   const handleAnalyze = async (targetUrl) => {
