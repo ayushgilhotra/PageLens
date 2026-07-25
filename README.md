@@ -1,5 +1,7 @@
 # PageLens
 
+Live Link:- https://pagelens-liard.vercel.app
+
 PageLens is a full stack website intelligence platform that analyzes any public website and gives useful information about its technical structure and SEO. It is built using React for the frontend and Spring Boot for the backend.
 
 The idea behind this project is simple. Instead of manually inspecting a website for metadata headings images and other technical details the user can simply enter a website URL and get all the important information in one place.
@@ -503,6 +505,10 @@ This project was developed as part of the Software Development Engineering Inter
 Building this application gave me the opportunity to work on a complete full stack project and apply concepts from both frontend and backend development.
 
 ---
+
+AI Usage
+
+I used AI tools as a development assistant throughout the project to explore ideas solve implementation challenges and review parts of the code. They also helped me improve the UI and documentation. Every feature was integrated tested and refined by me and all technical decisions were made after my own evaluation to ensure the final project reflects my understanding and approach.
 
 # Author
 
